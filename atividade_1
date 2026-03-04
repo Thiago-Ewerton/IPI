@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int dia1, dia2, mes1, mes2, ano1, ano2;
+    int soma_amor;
+    int soma_sorte;
+    int soma_trabalho;
+    
+    // Leitura da data de nascimento
+    scanf("%d/%d/%d %d/%d/%d", &dia1, &mes1, &ano1, &dia2, &mes2, &ano2);
+    
+    // soma amor
+    soma_amor = (dia1 + dia2) * 7;
+    soma_amor %= 101;
+    printf("Amor: %d%%\n", soma_amor);
+    
+    if (soma_amor < 20) {
+        printf("Pessimo dia para se apaixonar.\n");
+    } else if (soma_amor < 41) {
+        printf("Melhor manter o coracao <3 longe de perigo.\n");
+    } else if (soma_amor < 70) {
+        printf("Se o papo e as ideias baterem, esta liberado pensar em algo.\n");
+    } else if (soma_amor < 81) {
+        printf("Saia com o coracao aberto, mas lembre, nem toda troca de olhar em onibus e sinal de romance.\n");
+    } else {
+        printf("Um dia deslumbrantemente lindo para amar. Ps: Cuidado com a intensidade.\n");
+    }
+    
+    // soma sorte
+    soma_sorte = (((dia1 + dia2 + mes1 + mes2) * 9) / abs(ano1 - ano2));
+    soma_sorte %= 101;
+    printf("Sorte: %d%%\n", soma_sorte);
+    
+    if (soma_sorte < 30) {
+        printf("Nem jogue moedas pra cima hoje.\n");
+    } else if (soma_sorte < 51) {
+        printf("Melhor nao arriscar.\n");
+    } else if (soma_sorte < 80) {
+        printf("Por sua conta em risco.\n");
+    } else if (soma_sorte < 91) {
+        printf("Hoje vale a pena arriscar.\n");
+    } else {
+        printf("Nao tenha medo de virar cartas hoje.\n");
+    }
+    
+    printf("Sem tigrinho nem jogos de azar, por favor!\n");
+    
+    // soma trabalho
+    soma_trabalho = (ano1 + ano2) - (dia2 - dia1 - mes2 - mes1) * 8;
+    soma_trabalho %= 101;
+    printf("Trabalho: %d%%\n", soma_trabalho);
+    
+    if (soma_trabalho < 40) {
+        printf("Hoje nao sera um dia tao proveitoso, keep calm e faca o basico.\n");
+    } else if (soma_trabalho < 51) {
+        printf("Segura a emocao, nao xinga ninguem, nao esquece de beber agua.\n");
+    } else if (soma_trabalho < 70) {
+        printf("Um dia proveitoso com certeza, leve sua simpatia consigo.\n");
+    } else if (soma_trabalho < 85) {
+        printf("Boas vibracoes hoje, chances podem estar ao seu redor.\n");
+    } else {
+        printf("Use do maximo de networking possível hoje, dia bom para negocios.\n");
+    }
+
+    return 0;
+}
