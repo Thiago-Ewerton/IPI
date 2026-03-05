@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main()
 {
@@ -7,12 +8,13 @@ int main()
     int soma_amor;
     int soma_sorte;
     int soma_trabalho;
+    int soma_cor;
     
     // Leitura da data de nascimento
     scanf("%d/%d/%d %d/%d/%d", &dia1, &mes1, &ano1, &dia2, &mes2, &ano2);
     
     // soma amor
-    soma_amor = (dia1 + dia2) * 7;
+    soma_amor = (dia1 + mes1 + ano1 + dia2 + mes2 + ano2) * 7;
     soma_amor %= 101;
     printf("Amor: %d%%\n", soma_amor);
     
@@ -29,7 +31,7 @@ int main()
     }
     
     // soma sorte
-    soma_sorte = (((dia1 + dia2 + mes1 + mes2) * 9) / abs(ano1 - ano2));
+    soma_sorte = (((dia1 + dia2 + mes1 + mes2) * 9) + abs(ano1 - ano2));
     soma_sorte %= 101;
     printf("Sorte: %d%%\n", soma_sorte);
     
@@ -48,7 +50,7 @@ int main()
     printf("Sem tigrinho nem jogos de azar, por favor!\n");
     
     // soma trabalho
-    soma_trabalho = (ano1 + ano2) - (dia2 - dia1 - mes2 - mes1) * 8;
+    soma_trabalho = (ano1 + ano2) - ((dia2 + dia1 + mes2 + mes1) * 8);
     soma_trabalho %= 101;
     printf("Trabalho: %d%%\n", soma_trabalho);
     
@@ -64,5 +66,45 @@ int main()
         printf("Use do maximo de networking possível hoje, dia bom para negocios.\n");
     }
 
+    
+
+    // Soma cor 
+    soma_cor = pow(dia1,2) + pow(dia2,2) + pow(mes1,2) + pow(mes2,2) + pow(ano1,2) + pow(ano2,2);
+    soma_cor %= 11;
+    printf("Cor: ");
+
+    if (soma_cor == 0){
+        printf("Cinza\n");
+    }
+    if (soma_cor == 1){
+        printf("Vermelho\n");
+    }
+    if (soma_cor == 2){
+        printf("Laranja\n");
+    }
+    if (soma_cor == 3){
+        printf("Amarelo\n");
+    }
+    if (soma_cor == 4){
+        printf("Verde\n");
+    }
+    if (soma_cor == 5){
+        printf("Azul\n");
+    }
+    if (soma_cor == 6){
+        printf("Roxo\n");
+    }
+    if (soma_cor == 7){
+        printf("Marrom\n");
+    }
+    if (soma_cor == 8){
+        printf("Rosa\n");
+    }
+    if (soma_cor == 9){
+        printf("Preto\n");
+    }
+    if (soma_cor == 10){
+        printf("Branco\n");
+    }
     return 0;
 }
