@@ -1,5 +1,8 @@
+//Biblioteca para input e output
 #include <stdio.h>
+// Biblioteca para o uso de valor absoluto (somente positivos)
 #include <stdlib.h>
+//Biblioteca para facilitar operações matemáticas 
 #include <math.h>
 
 int main()
