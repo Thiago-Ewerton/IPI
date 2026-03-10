@@ -5,8 +5,11 @@ int main(){
     int premio, px, py, pz;
     int x, y, z;
     int sobra;
+    int a = 0, b = 0, c = 0;
+    int divisivel = 0;
+    int investiu = 0;
 
-    scanf("%d," &premio);
+    scanf("%d", &premio);
     scanf("%d", &px);
     scanf("%d", &py);
     scanf("%d", &pz);
@@ -15,16 +18,15 @@ int main(){
     y = premio * py/100;
     z = premio * pz/100;
 
-    
-    sobra = premio - x- y - z;
-
-    printf("%d", sobra);
-
-    if (sobra == 0)
+    sobra = premio - x - y - z;
 
     if((premio * px) % 100 == 0 && (premio * py) % 100 == 0 && (premio * pz) % 100 == 0){
         divisivel = 1;
+        a = x;
+        b = y;
+        c = z;
     }
+
     // Tenta adicionar 1 real
     else if(((premio+1) * px) % 100 == 0 && ((premio+1) * py) % 100 == 0 && ((premio+1) * pz) % 100 == 0){
         premio = premio + 1;
@@ -35,6 +37,7 @@ int main(){
         sobra = premio - a - b - c;
         if(sobra >= investiu + 1) divisivel = 1;
     }
+
     // Tenta adicionar 2 reais
     else if(((premio+2) * px) % 100 == 0 && ((premio+2) * py) % 100 == 0 && ((premio+2) * pz) % 100 == 0){
         premio = premio + 2;
@@ -45,6 +48,7 @@ int main(){
         sobra = premio - a - b - c;
         if(sobra >= investiu + 1) divisivel = 1;
     }
+
     // Tenta adicionar 3 reais
     else if(((premio+3) * px) % 100 == 0 && ((premio+3) * py) % 100 == 0 && ((premio+3) * pz) % 100 == 0){
         premio = premio + 3;
@@ -71,9 +75,9 @@ int main(){
     // Provas que Rebeka precisa fazer
     if(investiu == 2){
         char l1, l2, l3;
-        scanf("%c", &l1);
-        scanf("%c", &l2);
-        scanf("%c", &l3);
+        scanf(" %c", &l1);
+        scanf(" %c", &l2);
+        scanf(" %c", &l3);
         // Propriedade da tabela ASCI: Soma do número correspondente a sua posição na tabela
         int soma = (l1 - 'a' + 1) + (l2 - 'a' + 1) + (l3 - 'a' + 1);
         printf("%d\n", soma);
@@ -103,4 +107,3 @@ int main(){
 
     return 0;
 }
-

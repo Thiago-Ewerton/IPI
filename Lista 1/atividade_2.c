@@ -22,8 +22,10 @@ int main()
     printf("%lld\n", soma);
 
     if (soma % 2 == 0) {
-        printf("Algo de errado nao esta certo!\n");
-    } 
+        printf("Lá ele!!!");
+    } else {
+        printf("Opa xupenio AULAS...");
+    }
 
     return 0;
 

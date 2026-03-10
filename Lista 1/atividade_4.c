@@ -4,70 +4,90 @@
 int main(){
 
     int x, y, c;
+    int passosX, passosY;
+    int destinoX, destinoY;
 
     scanf("%d %d %d", &x, &y, &c);
 
-    int passosX, passosY;
-
     if(x > 0 && y > 0){
-        // Q1 -> Q3, destino (-1,-1)
-        passosX = abs(x) + 1;
-        passosY = abs(y) + 1;
+        // Q1 -> Q3
+        destinoX = -1;
+        destinoY = -1;
+
+        passosX = abs(x - destinoX);
+        passosY = abs(y - destinoY);
+
         if (c == 2){
             printf("%d passos em y e %d passos em x\n", passosY, passosX);
         }
         else if (c == 4){
             printf("%d passos em x e %d passos em y\n", passosX, passosY);
         }
-        else {
+        else{
             printf("caminhada invalida\n");
         }
     }
+
     else if(x < 0 && y > 0){
-        // Q2 -> Q4, destino (1,-1)
-        passosX = abs(x) - 1;
-        passosY = abs(y) + 1;
+        // Q2 -> Q4
+        destinoX = 1;
+        destinoY = -1;
+
+        passosX = abs(x - destinoX);
+        passosY = abs(y - destinoY);
+
         if (c == 1){
             printf("%d passos em y e %d passos em x\n", passosY, passosX);
         }
         else if (c == 3){
             printf("%d passos em x e %d passos em y\n", passosX, passosY);
         }
-        else {
+        else{
             printf("caminhada invalida\n");
         }
     }
+
     else if(x < 0 && y < 0){
-        // Q3 -> Q1, destino (1,1)
-        passosX = abs(x) - 1;
-        passosY = abs(y) - 1;
+        // Q3 -> Q1
+        destinoX = 1;
+        destinoY = 1;
+
+        passosX = abs(x - destinoX);
+        passosY = abs(y - destinoY);
+
         if (c == 2){
             printf("%d passos em x e %d passos em y\n", passosX, passosY);
         }
         else if (c == 4){
             printf("%d passos em y e %d passos em x\n", passosY, passosX);
         }
-        else {
+        else{
             printf("caminhada invalida\n");
         }
     }
+
     else if(x > 0 && y < 0){
-        // Q4 -> Q2, destino (-1,1)
-        passosX = abs(x) + 1;
-        passosY = abs(y) - 1;
+        // Q4 -> Q2
+        destinoX = -1;
+        destinoY = 1;
+
+        passosX = abs(x - destinoX);
+        passosY = abs(y - destinoY);
+
         if (c == 1){
             printf("%d passos em x e %d passos em y\n", passosX, passosY);
         }
         else if (c == 3){
             printf("%d passos em y e %d passos em x\n", passosY, passosX);
         }
-        else {
+        else{
             printf("caminhada invalida\n");
         }
     }
-    else {
+
+    else{
         printf("caminhada invalida\n");
     }
 
     return 0;
-}
+} 

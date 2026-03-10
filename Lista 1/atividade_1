@@ -19,7 +19,7 @@ int main()
     // soma amor
     soma_amor = (dia1 + mes1 + ano1 + dia2 + mes2 + ano2) * 7;
     soma_amor %= 101;
-    printf("Amor: %d%%\n", soma_amor);
+    printf("Amor: %d%% ", soma_amor);
     
     if (soma_amor < 20) {
         printf("Pessimo dia para se apaixonar.\n");
@@ -36,26 +36,26 @@ int main()
     // soma sorte
     soma_sorte = (((dia1 + dia2 + mes1 + mes2) * 9) + abs(ano1 - ano2));
     soma_sorte %= 101;
-    printf("Sorte: %d%%\n", soma_sorte);
+    printf("Sorte: %d%% ", soma_sorte);
     
     if (soma_sorte < 30) {
-        printf("Nem jogue moedas pra cima hoje.\n");
+        printf("Nem jogue moedas pra cima hoje.");
     } else if (soma_sorte < 51) {
-        printf("Melhor nao arriscar.\n");
+        printf("Melhor nao arriscar.");
     } else if (soma_sorte < 80) {
-        printf("Por sua conta em risco.\n");
+        printf("Por sua conta em risco.");
     } else if (soma_sorte < 91) {
-        printf("Hoje vale a pena arriscar.\n");
+        printf("Hoje vale a pena arriscar.");
     } else {
-        printf("Nao tenha medo de virar cartas hoje.\n");
+        printf("Nao tenha medo de virar cartas hoje.");
     }
     
-    printf("Sem tigrinho nem jogos de azar, por favor!\n");
+    printf(" Sem tigrinho nem jogos de azar, por favor!\n");
     
     // soma trabalho
     soma_trabalho = (ano1 + ano2) - ((dia2 + dia1 + mes2 + mes1) * 8);
     soma_trabalho %= 101;
-    printf("Trabalho: %d%%\n", soma_trabalho);
+    printf("Trabalho: %d%% ", soma_trabalho);
     
     if (soma_trabalho < 40) {
         printf("Hoje nao sera um dia tao proveitoso, keep calm e faca o basico.\n");
@@ -77,37 +77,37 @@ int main()
     printf("Cor: ");
 
     if (soma_cor == 0){
-        printf("Cinza\n");
+        printf("Cinza.\n");
     }
     if (soma_cor == 1){
-        printf("Vermelho\n");
+        printf("Vermelho.\n");
     }
     if (soma_cor == 2){
-        printf("Laranja\n");
+        printf("Laranja.\n");
     }
     if (soma_cor == 3){
-        printf("Amarelo\n");
+        printf("Amarelo.\n");
     }
     if (soma_cor == 4){
-        printf("Verde\n");
+        printf("Verde.\n");
     }
     if (soma_cor == 5){
-        printf("Azul\n");
+        printf("Azul.\n");
     }
     if (soma_cor == 6){
-        printf("Roxo\n");
+        printf("Roxo.\n");
     }
     if (soma_cor == 7){
-        printf("Marrom\n");
+        printf("Marrom.\n");
     }
     if (soma_cor == 8){
-        printf("Rosa\n");
+        printf("Rosa.\n");
     }
     if (soma_cor == 9){
-        printf("Preto\n");
+        printf("Preto.\n");
     }
     if (soma_cor == 10){
-        printf("Branco\n");
+        printf("Branco.\n");
     }
     return 0;
 }
