@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main(){
+
+    char c;
+    int max;
+    int i, espaco;
+
+    scanf(" %c", &c);
+
+    max = (c - 'a' + 1);
+
+    for(i = 1; i <= max; i++){
+        // Pontos antes das letras
+        for(espaco = 1; espaco <= max - i; espaco++){
+            printf(".");
+        }
+
+        char letra = 'a';
+
+        // parte crescente (letras)
+        for(int j = 1; j <= i; j++){
+            printf("%c", letra);
+            letra++;
+        }
+
+        letra -= 2;
+
+        // parte decrescente (letras)
+        for(int j = 1; j < i; j++){
+            printf("%c", letra);
+            letra--;
+        }
+
+        // Pontos após as letras
+        for(espaco = 1; espaco <= max - i; espaco++){
+            printf(".");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
