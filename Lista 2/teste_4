@@ -1,0 +1,68 @@
+#include <stdio.h>
+
+int main(){
+
+    int q;
+    scanf("%d", &q);
+
+    int pos = 0;  // posição atual do cursor
+
+    // Repetições do programa
+    for(int i = 0; i < q; i++){
+
+        int x;
+        char c;
+
+        scanf("%d %c", &x, &c);
+
+        // Ir para a direita
+        if(c == 'D'){
+            if(pos > 0 ){
+                for(int j = 0; j < pos; j++){
+                    printf(" ");
+                }
+            }
+            for(int j = 0; j < x; j++){
+                printf(".");
+            }
+
+            pos += x;
+        }
+        // Ir para baixo
+        else if(c == 'B'){
+            if(x == 1){
+                printf("\n");
+            } else {
+                for(int j = 0; j < x - 1; j++){
+                    printf("\n");
+
+                    for(int k = 0; k < pos - 1; k++){  
+                        printf(" ");
+                    }
+
+                    printf(".");
+                }
+            }
+        }
+        // Ir para a esquerda
+        else if(c == 'E'){
+            pos -= x;
+
+            if(pos < 0){
+                pos = 0;
+            }
+
+            printf("\n");
+
+            for(int j = 0; j < pos - 1 ; j++){  
+                printf(" ");
+            }
+
+            for(int j = 0; j < x + 1; j++){  
+                printf(".");
+            }
+        }
+    }
+
+    return 0;
+}
