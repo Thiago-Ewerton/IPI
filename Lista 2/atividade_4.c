@@ -1,69 +1,104 @@
-#include <stdio.h>
+#include<stdio.h>
 
 int main(){
 
     int q;
+    int x;
+    char c;
+    int espaco = 0;
+    char ultimo = 'X';
+
     scanf("%d", &q);
 
-    int pos = 0;  // posição atual do cursor
-    int pula_linha =0; //flag do B
-
-    for(int i = 0; i < q; i++){
-        int x;
-        char c;
+    for(int j = 0; j < q; j++){
 
         scanf("%d %c", &x, &c);
 
         if(c == 'D'){
 
-            if (pos != 0){
-                for(int j= 0; j < pos; j++){
+            if(espaco == 0 && ultimo != 'B'){ 
+                for(int i= 0; i < x; i++){
+                    printf(".");
+                    espaco++;
+                }
+            } else {
+                for(int i= 0; i < espaco; i++){
                     printf(" ");
                 }
+
+                if(ultimo == 'B'){
+                    printf(".");
+                    espaco++;
+                }
+
+                for(int i= 0; i < x; i++){
+                    printf(".");
+                    espaco++;
+                }
             }
-            for(int j = 0; j < x; j++){
-                printf(".");
+
+            ultimo = 'D';
+            espaco--;
+
+        } else if(c == 'E'){
+
+            if(x > espaco){
+                printf("Informacao invalida");
             }
 
-            pos =+ x;
+            else{
 
-        } else if (c == 'B'){
-            int linha = 0;
+                 espaco = espaco - x;
 
-            do {
-                
+                for(int i= 0; i < espaco; i++){
+                    printf(" ");
+                }
+                for(int i= 0; i < x; i++){
+                    printf(".");   
+                }  
+            
+                if(ultimo == 'B'){
+                    printf(".");
+                }
+            }
+
+            ultimo = 'E';
+        
+
+
+        } else if(c == 'B'){
+
+            if(x != 1){
+
+            for(int k = 0; k < x-1; k++){
+            
                 printf("\n");
-                for(int k = 0; k < pos; k++){
+
+                for(int i = 0; i < espaco; i++){
                     printf(" ");
                 }
-                printf(".");
-                linha++;
-                
-            } while (linha < x);
 
-            pula_linha = 1;
-
-
-        } else if (c == 'E'){
-            
-            pos -= x;
-
-            if (pula_linha == 1){
-
-                x =+ 1;
-                pula_linha = 0;
-            }
-
-            for (int j = 0; j < pos - x ; j++){
-                printf(" ");
-            }
-            for(int j = 0; j < x; j++){
                 printf(".");
             }
-            
+            printf("\n");
+
+        } else{
+
+            printf("\n");
+        }
+            ultimo = 'B';
 
         }
+    }
+
+    if(ultimo == 'B'){
+        for(int i = 0; i < espaco; i++){
+            printf(" ");
+
+        }
+        printf(".");
 
     }
+
     return 0;
 }

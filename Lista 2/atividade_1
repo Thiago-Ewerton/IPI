@@ -8,7 +8,8 @@ int main(){
 
     scanf(" %c", &c);
 
-    max = (c - 'a' + 1);
+//Calculo da quantidade de linhas do triangulo
+    max = (c - 'A' + 1);
 
     for(i = 1; i <= max; i++){
         // Pontos antes das letras
@@ -16,7 +17,7 @@ int main(){
             printf(".");
         }
 
-        char letra = 'a';
+        char letra = 'A';
 
         // parte crescente (letras)
         for(int j = 1; j <= i; j++){
