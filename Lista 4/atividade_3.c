@@ -1,49 +1,56 @@
-#include<stdio.h>
+#include <stdio.h>
 
-
-int main(){
-
-    int N, X, Y;
-    int horario_real = 7*60;
-    int latas = 50;
+int main() {
+    // Matriz 4x4 representando a cidade
+    int cidade[4][4] = {0};
     
 
-    scanf("%d", &N);
-    scanf("%d", &X);
-    scanf("%d", &Y);
-
-    int horario_sistema[1000];
-    int latas_sistema[1000];
-
+    //Variaveis de controle de posição
+    int x = 0, y = 0; 
+    int max_visitas = 0;
+    int manuela_x = 0, manuela_y = 0;
     
-    for (int i = 0; i < Y; i++) {
-        int h, m, latas;
-        scanf("%d:%d %d", &h, &m, &latas);
-        horario_sistema[i] = h * 60 + m;
-        latas_sistema[i] = latas;
-    }
+    char passo;
 
-    for (int i = 0; i < N; i++){
-
-        if(i%x == 0){
-            latas--;
-
-            if horario_real 
-
+    // For principal
+    for (int i = 0; i < 20; i++) {
+        // Lê cada caractere ignorando os espaços
+        scanf(" %c", &passo);
+        
+        // Atualiza as coordenadas de acordo com a direção
+        if (passo == 'c') {
+            y--; 
+        } else if (passo == 'b') {
+            y++; 
+        } else if (passo == 'e') {
+            x--; 
+        } else if (passo == 'd') {
+            x++; 
         }
+        
+        // Limites de segurança da matriz 4x4 
+        if (x < 0) x = 0;
+        if (x > 3) x = 3;
+        if (y < 0) y = 0;
+        if (y > 3) y = 3;
 
-
-
-
-
-        horario_real = horario_real + 3;
-
+        // Adiciona +1 ao local visitado no passo atual
+        cidade[y][x]++;
     }
 
+    // Procura na matriz qual foi a coordenada com mais visitas
+    for (int i = 0; i < 4; i++) { 
+        for (int j = 0; j < 4; j++) { 
+            if (cidade[i][j] > max_visitas) {
+                max_visitas = cidade[i][j];
+                manuela_x = j;
+                manuela_y = i;
+            }
+        }
+    }
 
-       
+    // Imprime o resultado final 
+    printf("Coordenada X:%d, Y:%d\n", manuela_x, manuela_y);
 
-    
-
-
+    return 0;
 }
