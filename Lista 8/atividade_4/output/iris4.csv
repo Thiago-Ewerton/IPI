@@ -1,0 +1,18 @@
+sepal_length,sepal_width,petal_length,petal_width,species
+6.7,3.0,5.2,2.3,Iris-virginica
+6.3,2.5,5.0,1.9,Iris-virginica
+6.5,3.0,5.2,2.0,Iris-virginica
+6.2,3.4,5.4,2.3,Iris-virginica
+5.9,3.0,5.1,1.8,Iris-virginica
+5.4,3.9,1.7,0.4,Iris-setosa
+4.6,3.4,1.4,0.3,Iris-setosa
+5.0,3.4,1.5,0.2,Iris-setosa
+5.4,3.4,1.7,0.2,Iris-setosa
+
+
+--- Estatisticas ---
+Media sepal_length: 7039268093794599157375172608.00
+Media sepal_width: 6504943569728555712512.00
+Media petal_length: 1775321733203531551991660544.00
+Media petal_width: 1852359911247872919508877312.00
+Moda species: Iris-virginica

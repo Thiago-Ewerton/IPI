@@ -1,0 +1,19 @@
+sepal_length,sepal_width,petal_length,petal_width,species
+5.8,4.0,1.2,0.2,Iris-setosa
+5.7,4.4,1.5,0.4,Iris-setosa
+5.4,3.9,1.3,0.4,Iris-setosa
+5.1,3.5,1.4,0.3,Iris-setosa
+5.7,3.8,1.7,0.3,Iris-setosa
+5.1,3.8,1.5,0.3,Iris-setosa
+6.1,2.8,4.7,1.2,Iris-versicolor
+6.4,2.9,4.3,1.3,Iris-versicolor
+6.6,3.0,4.4,1.4,Iris-versicolor
+
+
+
+--- Estatisticas ---
+Media sepal_length: 6399334899038640306116362240.00
+Media sepal_width: 5913584909857790623744.00
+Media petal_length: 1613928808119405250080669696.00
+Media petal_width: 1683963569095698344069562368.00
+Moda species: Iris-setosa
