@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <stdint.h>
+
 
 union Sensor {
 
-    unsigned char bruto;
+    uint8_t bruto;
 
     struct {
         unsigned erro    : 1; // bit 0

@@ -72,10 +72,8 @@ int main() {
 
         printf("Bateria Baixa: ");
 
-        if (vetor[i].campos.bateria)
-            printf("SIM (ALERTA)\n");
-        else
-            printf("Nao\n");
+        if (vetor[i].campos.bateria) printf("SIM (ALERTA)\n");
+        else printf("Nao\n");
 
         printf("Temperatura : %d graus\n", vetor[i].campos.temperatura);
 
