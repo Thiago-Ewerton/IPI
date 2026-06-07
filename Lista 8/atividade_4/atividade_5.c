@@ -163,7 +163,7 @@ int main() {
     fclose(f_relatorio);
 
     
-    // 6. LIMPEZA DE MEMÓRIA
+    // LIMPEZA DE MEMÓRIA
     free(produtos);
     free(inconsistencias);
 
