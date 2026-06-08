@@ -1,8 +1,187 @@
 #include <stdio.h>
+#include <stdlib.h>
 
+typedef struct No{
+    int valor;
+    struct No *esquerda;
+    struct No *direita;
+} No;
+
+// Criar nó
+No *criarNo(int valor){
+    No *novo = (No*) malloc(sizeof(No));
+
+    if(novo == NULL){
+        printf("Erro ao alocar memoria\n");
+        exit(1);
+    }
+
+    novo->valor = valor;
+    novo->esquerda = NULL;
+    novo->direita = NULL;
+
+    return novo;
+}
+
+// Inserção na BST
+No *inserir(No *raiz, int valor){
+
+    if(raiz == NULL){
+        return criarNo(valor);
+    }
+
+    if(valor < raiz->valor){
+        raiz->esquerda = inserir(raiz->esquerda, valor);
+    }
+    else if(valor > raiz->valor){
+        raiz->direita = inserir(raiz->direita, valor);
+    }
+
+    // valores repetidos são ignorados
+
+    return raiz;
+}
+
+// Pré-ordem
+void preOrdem(No *raiz){
+
+    if(raiz != NULL){
+        printf("%d ", raiz->valor);
+
+        preOrdem(raiz->esquerda);
+        preOrdem(raiz->direita);
+    }
+}
+
+// Em ordem
+void emOrdem(No *raiz){
+
+    if(raiz != NULL){
+        emOrdem(raiz->esquerda);
+
+        printf("%d ", raiz->valor);
+
+        emOrdem(raiz->direita);
+    }
+}
+
+// Pós-ordem
+void posOrdem(No *raiz){
+
+    if(raiz != NULL){
+        posOrdem(raiz->esquerda);
+        posOrdem(raiz->direita);
+
+        printf("%d ", raiz->valor);
+    }
+}
+
+// Quantidade de nós
+int contarNos(No *raiz){
+
+    if(raiz == NULL){
+        return 0;
+    }
+
+    return 1 +
+           contarNos(raiz->esquerda) +
+           contarNos(raiz->direita);
+}
+
+// Quantidade de folhas
+int contarFolhas(No *raiz){
+
+    if(raiz == NULL){
+        return 0;
+    }
+
+    if(raiz->esquerda == NULL && raiz->direita == NULL){
+        return 1;
+    }
+
+    return contarFolhas(raiz->esquerda) +
+           contarFolhas(raiz->direita);
+}
+
+// Altura
+int altura(No *raiz){
+
+    if(raiz == NULL){
+        return -1;
+    }
+
+    int altEsq = altura(raiz->esquerda);
+    int altDir = altura(raiz->direita);
+
+    if(altEsq > altDir){
+        return altEsq + 1;
+    }
+
+    return altDir + 1;
+}
+
+// Menor valor
+int obterMenor(No *raiz){
+
+    while(raiz->esquerda != NULL){
+        raiz = raiz->esquerda;
+    }
+
+    return raiz->valor;
+}
+
+// Maior valor
+int obterMaior(No *raiz){
+
+    while(raiz->direita != NULL){
+        raiz = raiz->direita;
+    }
+
+    return raiz->valor;
+}
 
 int main(){
-//teste
 
-printf("Hello World!");
+    No *raiz = NULL;
+
+    int valor;
+
+    scanf("%d", &valor);
+
+    while(valor != -1){
+
+        raiz = inserir(raiz, valor);
+
+        scanf("%d", &valor);
+    }
+
+    if(raiz == NULL){
+
+        printf("ARVORE VAZIA\n");
+        return 0;
+    }
+
+    printf("PREORDEM: ");
+    preOrdem(raiz);
+    printf("\n");
+
+    printf("EMORDEM: ");
+    emOrdem(raiz);
+    printf("\n");
+
+    printf("POSORDEM: ");
+    posOrdem(raiz);
+    printf("\n");
+
+    printf("NOS: %d\n", contarNos(raiz));
+
+    printf("FOLHAS: %d\n", contarFolhas(raiz));
+
+    printf("ALTURA: %d\n", altura(raiz));
+
+    printf("MENOR: %d\n", obterMenor(raiz));
+
+    printf("MAIOR: %d\n", obterMaior(raiz));
+
+    return 0;
 }
